@@ -50,7 +50,10 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.stripe',
+    'crispy_forms',
+    'paypal.standard.ipn',
+    #'payment',
+    'contact',
     
 ]
 
@@ -139,7 +142,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'products/')
 
 CART_SESSION_ID = 'cart'
-
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
@@ -175,3 +178,5 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 SITE_ID = 1
+PAYPAL_RECEIVER_EMAIL  = 'riyagupta6018@gmail.com'
+PAYPAL_TEST = True

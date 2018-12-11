@@ -74,17 +74,17 @@
 					<nav class="menu">
 						<ul class="main_menu">
 							<li>
-								<a href="">Home</a>
+								<a href="{% url 'shop:home' %}">Home</a>
 							</li>
 
 							<li>
-                <a href="{% url 'shop:product_list' %}">Shop</a>
-              </li>
+  				              <a href="{% url 'shop:product_list' %}">Shop</a>
+            			    </li>
 							<li>
-								<a href="">Features</a>
+								<a href="">About</a>
 							</li>
 							<li>
-								<a href="">Contact</a>
+								<a href="{% url 'contact:contact' %}">Contact</a>
 							</li>
 						</ul>
 					</nav>
@@ -210,12 +210,12 @@
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="">Home</a>
+						<a href="{% url 'shop:home' %}">Home</a>
 						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="">Shop</a>
+						<a href="{% url 'shop:product_list' %}">Shop</a>
 					</li>
 					<li class="item-menu-mobile">
 						<a href="">Features</a>
@@ -228,10 +228,7 @@
 			</nav>
 		</div>
 	</header>
-
-
-
-
+	
 <!--===============================================================================================-->
 	<script type="text/javascript" src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
 <!--===============================================================================================-->
@@ -257,7 +254,7 @@
 <!--===============================================================================================-->
 	<script type="text/javascript" src="{% static 'vendor/sweetalert/sweetalert.min.js' %}"></script>
 <!--===============================================================================================-->
-	<script src="{% static 'js/main.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 
 </body>
 </html>
