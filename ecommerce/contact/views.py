@@ -24,3 +24,7 @@ def contact(request):
     context  =  {'title': title, 'form': form, 'confirm_message': confirm_message, }    
     template = 'contact.html'
     return render(request,template,context)
+
+def about(request):
+    template = 'about.html'
+    return render(request,template)

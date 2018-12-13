@@ -21,7 +21,6 @@ EMAIL_HOST_PASSWORD = 'Absolute@2010$#'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -52,7 +51,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'paypal.standard.ipn',
-    #'payment',
     'contact',
     
 ]

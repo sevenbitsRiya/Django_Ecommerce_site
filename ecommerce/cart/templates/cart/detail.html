@@ -1,4 +1,6 @@
 {% extends 'shop/base.html' %}
+{% load crispy_forms_tags %}
+
 {% load static %}
 {% block title %}
     Your Shopping Cart
@@ -13,11 +15,11 @@
             <div class="wrap-table-shopping-cart bgwhite">
                 <table class="table-shopping-cart">
                     <tr class="table-head">
-                        <th class="column-1"></th>
+                        <th class="column-1">Product Image</th>
                         <th class="column-2">Product</th>
-                        <th class="column-3">Quantity</th>
-                        <th class="column-5">Remove</th>
-                        <th class="column-6">Total</th>
+                        <th class="column-3">Remove</th>
+                        <th class="column-4">Quantity</th>
+                        <th class="column-5">Total</th>
                     </tr>
                     {% for item in cart %}
                         {% with product=item.product  %}
@@ -32,19 +34,21 @@
                             </td>
                             <td class="column-2">{{ product.name }}</td>
                             <td class="column-3">
-                                <form action="{% url "cart:cart_add" product.id %}" method="post">
-                                    {% csrf_token %}
-                                    {{ item.update_quantity_form.quantity }}
-                                    {{ item.update_quantity_form.update }}
-                                    <input type="submit" value="Update" class="flex-c-m size1 bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-                                </form>
-                            </td>
-                            <td class="column-5">
                                 <div class="flex-c-m size1 bg1 bo-rad-23 hov1 s-text1 trans-0-4">
                                     <a href="{% url "cart:cart_remove" product.id %}">Remove</a>
                                 </div>
                             </td>
-                            <td class="column-6">{{ item.total_price }}</td>
+                            <td class="column-4">
+                                <form action="{% url "cart:cart_add" product.id %}" method="post" >
+                                    {% csrf_token %}
+                                    {{ item.update_quantity_form.quantity }}
+                                    {{ item.update_quantity_form.update }}
+                                   
+                                    <input type="submit" value="Update" class="flex-c-m size1    bg1 bo-rad-23 hov1 s-text1 trans-0-4">       
+
+                                </form>
+                            </td>
+                            <td class="column-5">&#8377;&nbsp;{{ item.total_price }}</td>
                         </tr>
                          {% endwith %}
                     {% endfor %}
@@ -66,7 +70,7 @@
                 </span>
 
                 <span class="m-text21 w-size20 w-full-sm">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ cart.get_total_price }}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8377;{{ cart.get_total_price }}
                 </span>
             </div>
 

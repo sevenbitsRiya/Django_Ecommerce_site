@@ -1,9 +1,11 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
 from .models import OrderItem
 from .forms import OrderCreateForm
 from cart.cart import Cart
 
-
+@login_required
 def order_create(request):
     cart = Cart(request)
     if request.method == 'POST':
@@ -18,7 +20,7 @@ def order_create(request):
                     quantity=item['quantity']
                 )
             cart.clear()
-        return render(request, 'orders/order/created.html', {'order': order})
+        return render(request, 'orders/order/payment.html', {'order': order})
     else:
         form = OrderCreateForm()
     return render(request, 'orders/order/create.html', {'form': form})
